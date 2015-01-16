@@ -1,0 +1,36 @@
+<html>
+<head>
+	<title>Login</title>
+</head>
+<body>
+	<p>Hello Login Page!!</p>
+	<div ng-controller='users'>
+		<div class='container'>
+			<div class='row'>
+				<div class='col-md-6'>
+					<h1 class='text-right'>Chinglish!</h1>
+				</div>
+				
+			</div>
+			<div class='row'>
+				<div class='col-md-4'>
+					<h2>Login</h2>
+					<p>User Name: <input type='text' ng-model='old_user.name' placeholder='user name'></p>
+					<p>Password: <input type='password' ng-model='old_user.password' placeholder='password'></p>
+					<p><input type='submit' class='btn btn-md-default' ng-click='loginUser()' value='Login'></p>
+				</div>
+				<div class='col-md-4'>
+				</div>
+				<div class='col-md-4'>
+					<h2>Register</h2>
+					<p>User Name: <input type='text' ng-model='new_user.name' placeholder='user name'></p>
+					<p>Email: <input type='text' ng-model='new_user.email' placeholder='email'></p>
+					<p>Password: <input type='password' ng-model='new_user.password' placeholder='password'></p>
+					<p>Confirm Password: <input type='password' ng-model='new_user.confirm_password' placeholder='password'></p>
+					<p><input type='submit' ng-click='addUser()' class='btn btn-md-primary' value='Register'></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

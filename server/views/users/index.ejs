@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title><%= title %></title>
+
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+    
+    var io = io.connect();
+
+    io.emit('client_ready');
+    io.on('info', function(msg) {
+        console.log("Received 'info' event as well as the following message:", msg);
+    });
+    
+    </script>
+</head>
+<body>
+    <h1><%= title %></h1>
+    
+</body>
+</html>

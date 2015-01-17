@@ -3,27 +3,45 @@
 	<title>Word Game</title>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script type="text/javascript" src="./javascripts/services/game_factory.js"></script>
-	<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
 </head>
 <body>
-	<p>here in the game!!</p>
-	<div id="canvas"></div>
-	<div id="score">0</div>
-	<input type="text" id="word" name="word" placeholder="Enter Word" value="" />
+	<div ng controller='games'>
+		<div class='container'>
+			<div class='row'>
+				<div class='col-md-2'></div>
+				<div class='col-md-8'>
+					<nav class='nav'>
+						<input type='submit' ng-controller='games' ng-click="start('screen', 'user_input', 'score')" class='btn btn-md btn-primary text-left' value='Start'>
+						<h4 class='text-right' id='score1'>Score: </h4>
+					</nav>
+				</div>
+				<div class='col-md-2'></div>
+			</div>
+			<div class='row'>
+				<div class='col-md-2'></div>
+				<div class='col-md-8 screen' id='screen' ng-model='screen' ng-controller='games'>
+				</div>
+				<div class='col-md-2'></div>
+			</div>
+			<div class='row'>
+				<div class='col-md-2'></div>
+				<div class='col-md-8'>
+					<!-- <form ng-submit='submit()'>
+							<input type='text' class='answer' placeholder='write translation' ng-model='translation.english'>
+					</form> -->
+					<form ng-submit="submit()" ng-controller="games">
+  						Enter text and hit enter:
+  						<input type="text" id='user_input' ng-model="text" name="text" />
+  						<!-- <input type="submit" id="submit" value="Submit" /> -->
+					</form>
+  
 
-	<script type="text/javascript">
-		var a = new PlayGround('canvas', 'word', 'score');
-
-		setInterval("a.playGame()", 500);
-
-		$(document).ready(function()
-		{	
-			$('#word').focus();
-			$('#word').on("keyup", function(){
-				a.checkWord($('#word').val());
-			});
-		});
-	</script>
+				</div>
+						
+			</div>
+		</div>
+	</div>
 
 </body>
 </html>

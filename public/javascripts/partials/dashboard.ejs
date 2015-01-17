@@ -7,7 +7,7 @@
 	<!-- <nav class='nav navbar-right'>
 			<a href='#/'>Dashboard</a> | <a href="#/login">Login</a>
 		</nav> -->
-	<div class='container'>
+	<div class='container' ng-controller='words'>
 		<nav class='navbar navbar-default'>
 			<!-- <h1 class='text-center'>Dashboard!</h1> -->
 			<!-- <a class='navbar-right' href='#/logout'>Logout</a> -->
@@ -26,6 +26,7 @@
 		      </ul>
 		</nav>
 		<div class='row'>
+			{{my_words}}
 			<div class='col-md-1'></div>
 			<div class='col-md-4'>
 				<h3>Review Vocab</h3>
@@ -35,13 +36,9 @@
 						<th>English</th>
 					</thead>
 					<tbody>
-						<tr>
-							<td>九</td>
-							<td>nine</td>
-						</tr>
-						<tr>
-							<td>友</td>
-							<td>friend</td>
+						<tr ng-repeat='word in words | filter: filter_name | orderBy: word.english'>
+							<td>{{word.chinese}}</td>
+							<td>{{word.english}}</td>
 						</tr>
 					</tbody>
 				</table>

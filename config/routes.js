@@ -1,4 +1,5 @@
 var users = require('./../server/controllers/users.js');
+var words = require('./../server/controllers/words.js');
 //  load other controllers here
 
 module.exports = function Routes(app) {
@@ -16,6 +17,10 @@ module.exports = function Routes(app) {
     ///////////my actual routes////////
     app.post('/users/create_json', function(req, res){console.log('in the routes!', req.body); users.create(req, res)});
     ///////////////////////////////////
+
+    /////my words routes/////
+    app.get('/words/index_json', function(req, res){console.log('in the routes!!'); words.index_json(req, res)});
+    /////////////////////////
 
     app.io.route('client_ready',    function(request) {
         console.log('A new user connected.');

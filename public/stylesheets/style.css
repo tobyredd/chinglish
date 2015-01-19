@@ -23,7 +23,7 @@
 	border: 1px solid black;
 }
 .screen{
-	height: 300px;
+	height: 420px;
 	border: 1px solid black;
 }
 .answer{
@@ -55,18 +55,24 @@
 }
 
 #score {
-	margin-top:10px;
-	margin-bottom:15px;
+	
 	width:80px;
 	height:40px;
 	border:1px solid silver;
 	font-size:25px;
-	background-color:blue;
-	color:white;
+	/*background-color:blue;*/
+	/*color:white;*/
 	display: inline-block;
 	vertical-align: top;
 	text-align: center;
-	padding-top:15px;
+}
+
+#game_over{
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+	color: red;
+	width: 200px;
 }
 
 input#word{

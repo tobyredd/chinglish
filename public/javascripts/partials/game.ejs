@@ -12,8 +12,9 @@
 				<div class='col-md-2'></div>
 				<div class='col-md-8'>
 					<nav class='nav'>
-						<input type='submit' ng-controller='games' ng-click="start('screen', 'user_input', 'score')" class='btn btn-md btn-primary text-left' value='Start'>
-						<h4 class='text-right' id='score1'>Score: </h4>
+						<input type='submit' ng-controller='games' ng-click="start('screen', 'user_input', 'score', 'game_over')" class='btn btn-md btn-primary text-left' value='Start'>
+						<p id='game_over'></p>
+						<p id='score'></p> 
 					</nav>
 				</div>
 				<div class='col-md-2'></div>

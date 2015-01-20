@@ -16,6 +16,9 @@ chinglish.controller('games', function($scope, gameFactory){
 		gameFactory.playGround(screen, user_input, score, my_game, game_over);
 		// timerTick(gameFactory);
 	}
-
+	$scope.config = {
+		itemsPerPage: 5,
+		fillLastPage: true
+	}
   
 })

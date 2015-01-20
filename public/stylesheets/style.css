@@ -17,7 +17,11 @@
 }
 
 .chat{
-	border-top: 1px solid black;
+	margin: 0 auto;
+	border: 1px solid black;
+	height: 400px;
+	overflow: scroll;
+	width: 700px;
 }
 .chatroom{
 	border: 1px solid black;
@@ -28,6 +32,9 @@
 }
 .answer{
 	width: 740px;
+}
+.chat_inputs{
+	text-align: center;
 }
 
 

@@ -4,5 +4,25 @@
 </head>
 <body>
 	<p>hello from chat room!!</p>
+	<div class='container' ng-controller='chats'>
+		<div class='row'>
+			<div class='col-md-12'>
+				<p class='text-center'><input class='btn btn-lg btn-primary' type='submit' value='Join Chatroom' ng-click='joinChat()'></p>
+			</div>
+		</div>
+		
+		<div class='chat'>
+			<!-- <p ng-repeat='message in messages'>
+				{{message.message}}
+			</p> -->
+		</div>
+		
+		<div class='row'>
+			<div class='col-md-12 chat_inputs'>
+				<input type='text' placeholder='chat' ng-model='message'>
+				<input type='submit' class='btn btn-md btn-danger' ng-click='sendMessage()'>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

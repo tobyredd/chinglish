@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Chinglish</title>
+	<title>Login</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel='stylesheet' href='./stylesheets/style.css'>
 	<link rel="stylesheet" href='http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css'>
@@ -21,12 +21,42 @@
 </head>
 <body>
 	<div ng-app='chinglish'>
-		<nav class='nav'>
-			<a href='#/'>Dashboard</a> | <a href="#/login">Login</a>
-		</nav>
-		<div ng-view=""></div>
-
+		
+		
 		<!-- <img src='./img/chinglish_cover.jpg' alt='cover'> -->
+		<p>Hello Login Page!!</p>
+		<div ng-controller='users'>
+			<div class='container'>
+				<div class='login'>
+					<div class='row'>
+						<div class='col-md-6'>
+							<h1 class='text-right'>Chinglish!</h1>
+						</div>
+						
+					</div>
+					<div class='row'>
+						<div class='col-md-4'>
+							<h2>Login</h2>
+							<form action='/users/login' method='post'>
+								<p><input type='text' ng-model='old_user.name' placeholder='user name' name='name'></p>
+								<p><input type='password' ng-model='old_user.password' placeholder='password' name='password'></p>
+								<p><input type='submit' class='btn btn-md-default' ng-click='loginUser()' value='Login'></p>
+							</form>
+						</div>
+						<div class='col-md-4'>
+						</div>
+						<div class='col-md-4'>
+							<h2>Register</h2>
+							<p><input type='text' ng-model='new_user.name' placeholder='user name'></p>
+							<p><input type='text' ng-model='new_user.email' placeholder='email'></p>
+							<p><input type='password' ng-model='new_user.password' placeholder='password'></p>
+							<p><input type='password' ng-model='new_user.confirm_password' placeholder='password'></p>
+							<p><input type='submit' ng-click='addUser()' class='btn btn-md-primary' value='Register'></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

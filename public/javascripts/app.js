@@ -5,9 +5,9 @@ chinglish.config(function($routeProvider){
 	{
 		templateUrl: 'javascripts/partials/dashboard.ejs'
 	})
-	.when('/login',
+	.when('/chat',
 	{
-		templateUrl: 'javascripts/partials/login.ejs'
+		templateUrl: 'javascripts/partials/chat.ejs'
 	})
 	.when('/game',
 	{

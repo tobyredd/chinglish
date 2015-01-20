@@ -1,5 +1,6 @@
 chinglish.controller('games', function($scope, gameFactory){
-	$scope.words = gameFactory.getWords(function(data){$scope.words = data})
+	$scope.words = gameFactory.getWords(function(data){$scope.words = data});
+	$scope.scores = gameFactory.getScores(function(data){$scope.scores = data});
 	$scope.submit = function() {
 		console.log($scope.text);
 		gameFactory.submitAnswer($scope.text);

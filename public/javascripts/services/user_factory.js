@@ -25,14 +25,17 @@ chinglish.factory('userFactory', ['$http', function($http){
 			console.log('successful registration!');
 		})
 	}
-	factory.loginOldUser = function(info){
-		console.log('in the login function of users factory');
-		console.log('login info: ', info);
-		users.push({
-			name: info.name
-		})
-		console.log('logged in users: ', users);
+	// factory.loginOldUser = function(info){
+	// 	console.log('in the login function of users factory');
+	// 	console.log('login info: ', info);
+	// 	// users.push({
+	// 	// 	name: info.name
+	// 	// })
+	// 	// console.log('logged in users: ', users);
+	// 	// $http.post('/users/login', info).success(function(){
+	// 	// 	console.log('logging user in!!');
+	// 	// })
 
-	}
+	// }
 	return factory;
 }])

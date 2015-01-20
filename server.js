@@ -3,6 +3,7 @@
 var express = require('express.io');
 // var express = require('express');
 
+var session = require('express-session');
 var path = require('path');
 var app = express().http().io();
 // var app = express();
@@ -12,7 +13,7 @@ app.configure(function() {
     // var cookieParser = require('cookie-parser');
     app.use(express.cookieParser());
 
-    // app.use(express.session( { secret: 'ninja' }));
+    app.use(express.session( { secret: 'ninja' }));
 
     // var bodyParser = require('body-parser');
     app.use(express.json());

@@ -1,4 +1,5 @@
 chinglish.factory('gameFactory', ['$http', function($http){
+	var scores = [];
 	var words = [];
 	this.user_score = 0;
 	this.counter = 0;
@@ -12,6 +13,13 @@ chinglish.factory('gameFactory', ['$http', function($http){
 
 		})
 		return words;
+	}
+	factory.getScores = function(callback){
+		$http.get('/scores/index').success(function(output){
+			scores = output;
+			callback(output);
+		})
+		return scores;
 	}
 	factory.submitAnswer = function(info){
 		console.log('info: ', info);
@@ -92,9 +100,15 @@ chinglish.factory('gameFactory', ['$http', function($http){
 		this.updatePosition();
 		if(this.mistakes === 5){
 			clearInterval(this.my_game);
-			total = this.score;
+			var info = {};
+			info.total = this.score;
+			console.log('info: ', info);
 			$('#' + this.game_over).text('5 hit the bottom, game over..refresh to restart');
-			return console.log('too many mistakes, heres your score: ', total);
+			///////saving score to the database//////
+			$http.post('/scores/save_score', info).success(function(){
+				console.log('saving user score');
+			});
+			return console.log('too many mistakes, heres your score: ', info);
 		}
 	}
 
@@ -110,7 +124,7 @@ chinglish.factory('gameFactory', ['$http', function($http){
 			random_index = parseInt(Math.random()*game_words.length);
 			this.word = game_words[random_index].chinese;
 			this.translation = game_words[random_index].english;
-			random_x_index = parseInt(Math.random()*(750));
+			random_x_index = parseInt(Math.random()*(600));
 			this.x = random_x_index;
 		}
 	}

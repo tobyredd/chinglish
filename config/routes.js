@@ -1,26 +1,34 @@
 var users = require('./../server/controllers/users.js');
 var words = require('./../server/controllers/words.js');
+var scores = require('./../server/controllers/scores.js');
 //  load other controllers here
 
 module.exports = function Routes(app) {
-    app.get('/',                    function(request, response) { users.index(request, response) });
-    app.get('/users',               function(request, response) { users.index(request, response) });
-    app.get('/users/index',         function(request, response) { users.index(request, response) });
-    app.get('/users/index.json',    function(request, response) { users.index_json(request, response) });
-
-    app.get('/users/new',           function(request, response) { users.new(request, response) });
-    app.post('/users/newUser_json', function(request, response) { users.newUser_json(request, response) });
-    app.post('/users',              function(request, response) { users.create(request, response) });
-
-    app.get('/users/:id',           function(request, response) { users.show(request, response) });
-    app.get('/users/:id/edit',      function(request, response) { users.edit(request, response) });
     ///////////my actual routes////////
-    app.post('/users/create_json', function(req, res){console.log('in the routes!', req.body); users.create(req, res)});
+    app.get('/',                    function(request, response) { users.index(request, response) });                /////login page////
+    app.post('/users/create_json', function(req, res){console.log('in the routes!', req.body); users.create(req, res)});     ///user registration//
+    app.post('/users/login', function(req, res){ 
+        console.log('req.body.name: ', req.body.name);
+        console.log('req.body.id: ', req.body);
+        console.log('session: ', req.session);
+        req.session.name = req.body.name; 
+        // req.session.id = req.body._id;
+        users.login(req, res) 
+    });
+    app.get('/homepage',                function(req, res){ users.homepage(req, res) });                                /////dashboard///////
+    
     ///////////////////////////////////
-
+    app.get('/logout', function(req, res){
+        delete req.session.name;
+        res.redirect('/');
+    })
     /////my words routes/////
     app.get('/words/index_json', function(req, res){console.log('in the routes!!'); words.index_json(req, res)});
     /////////////////////////
+    /////my scores//////////
+    app.post('/scores/save_score', function(req, res){ console.log('made it to save score route! ', req.body); scores.save(req, res)});                    //////save user score//////
+    app.get('/scores/index', function(req, res){ scores.index(req, res) });
+
 
     app.io.route('client_ready',    function(request) {
         console.log('A new user connected.');

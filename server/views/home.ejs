@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title>Chinglish</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel='stylesheet' href='./stylesheets/style.css'>
+	<link rel="stylesheet" href='http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css'>
+	<script src='http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script> 
+    <script src='http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js'></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min.js"></script>
+	<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+	<script type='text/javascript' src ='./socket.io/socket.io.js'></script>
+	<script src="./javascripts/jquery-1.11.2.min.js"></script>
+	<script src="./javascripts/app.js"></script>
+	<script src="./javascripts/services/user_factory.js"></script>
+	<script src="./javascripts/controllers/users.js"></script>
+	<script src="./javascripts/services/word_factory.js"></script>
+	<script src="./javascripts/services/game_factory.js"></script>
+	<script src="./javascripts/controllers/words.js"></script>
+	<script src="./javascripts/controllers/games.js"></script>
+</head>
+<body>
+	<div ng-app='chinglish'>
+		<%= 'welcome ' + username %>
+		<nav class='nav'>
+			<a href='#/'>Dashboard</a> | <a href="#/chat">Chat</a> | <a href="/logout">Logout</a>
+		</nav>
+		<div ng-view=""></div>
+
+		<!-- <img src='./img/chinglish_cover.jpg' alt='cover'> -->
+	</div>
+</body>
+</html>

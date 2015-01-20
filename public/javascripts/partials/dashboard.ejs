@@ -3,31 +3,12 @@
 	<title>Dashboard</title>
 </head>
 <body>
-	<!-- <p>Hello from the dashboard!!!!</p> -->
-	<!-- <nav class='nav navbar-right'>
-			<a href='#/'>Dashboard</a> | <a href="#/login">Login</a>
-		</nav> -->
 	<div class='container' ng-controller='words'>
 		<nav class='navbar navbar-default'>
-			<!-- <h1 class='text-center'>Dashboard!</h1> -->
-			<!-- <a class='navbar-right' href='#/logout'>Logout</a> -->
 			<ul class="nav navbar-nav navbar-right">
-		        <!-- <li><a href="#">Link</a></li> -->
-		        <!-- <li class="dropdown">
-		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-		          <ul class="dropdown-menu" role="menu">
-		            <li><a href="#">Action</a></li>
-		            <li><a href="#">Another action</a></li>
-		            <li><a href="#">Something else here</a></li>
-		            <li class="divider"></li>
-		            <li><a href="#">Separated link</a></li>
-		          </ul>
-		        </li> -->
 		      </ul>
 		</nav>
 		<div class='row'>
-			{{my_words}}
-			<!-- <div class='col-md-1'></div> -->
 			<div class='col-md-4'>
 				<h3>Review Vocab</h3>
 				<table class='table table-striped'>
@@ -36,17 +17,20 @@
 						<th>English</th>
 					</thead>
 					<tbody>
-						<tr ng-repeat="word in words | filter: filter_name | orderBy: 'english'">
+						<tr ng-repeat="word in words | orderBy: 'english' | startFrom: currentPage * pageSize | limitTo: pageSize ">
 							<td>{{word.chinese}}</td>
 							<td>{{word.english}}</td>
 						</tr>
+						<button class='btn btn-sm btn-primary' ng-disabled='currentPage == 0' ng-click='currentPage = currentPage - 1'>Prev</button>
+						{{currentPage + 1}}/{{numberOfPages()}}
+						<button class='btn btn-sm btn-primary' ng-disabled='currentPage >= data.length/pageSize - 1' ng-click='currentPage = currentPage + 1'>Next</button>
 					</tbody>
 				</table>
 			</div>
 			<div class='col-md-3'>
 				<!-- <h3>Click the cat and play now</h3> -->
 				<a href='#/game'><img src='./img/lucky_cat.jpg' alt='lucky_cat'></a>
-				<h3>Click cat to play</h3>
+				<h3 class='text-center'>Click cat to play</h3>
 			</div>
 			<div class='col-md-4' ng-controller='games'>
 				<h3>High Scores</h3>
@@ -57,26 +41,19 @@
 						<th>Date</th>
 					</thead>
 					<tbody>
-						<tr ng-repeat="score in scores | orderBy: '-score'">
+						<tr ng-repeat="score in scores | orderBy: '-score' | startFrom: currentPage * pageSize | limitTo: pageSize">
 							<td>{{score.name}}</td>
 							<td>{{score.score}}</td>
 							<td>{{score.created_at}}</td>
 						</tr>
-						<!-- <tr>
-							<td>Spidey</td>
-							<td><button class='btn btn-sm btn-default'>chat</button></td>
-							<td><button class='btn btn-sm btn-danger'>play against</button></td>
-						</tr>
-						<tr>
-							<td>Miles Davis</td>
-							<td><button class='btn btn-sm btn-default'>chat</button></td>
-							<td><button class='btn btn-sm btn-danger'>play against</button></td>
-						</tr> -->
+						<button class='btn btn-sm btn-primary' ng-disabled='currentPage == 0' ng-click='currentPage = currentPage - 1'>Prev</button>
+						{{currentPage + 1}}/{{numberOfPages()}}
+						<button class='btn btn-sm btn-primary' ng-disabled='currentPage >= data.length/pageSize - 1' ng-click='currentPage = currentPage + 1'>Next</button>
 					</tbody>
 				</table>
 			</div>
 		</div>
-		<div class='row'>
+		<!-- <div class='row'>
 			<div class='col-lg-1'></div>
 			<div class='col-lg-10 chatroom'>
 				<h4 class='center'></h4>
@@ -89,7 +66,7 @@
 				<h4 class='center'>Chat</h4>
 			</div>
 			<div class='col-lg-1'></div>
-		</div>
+		</div> -->
 	</div>
 </body>
 </html>

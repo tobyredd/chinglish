@@ -1,6 +1,17 @@
 chinglish.controller('games', function($scope, gameFactory){
 	$scope.words = gameFactory.getWords(function(data){$scope.words = data});
-	$scope.scores = gameFactory.getScores(function(data){$scope.scores = data});
+	$scope.scores = gameFactory.getScores(function(data){
+		$scope.scores = data,
+		$scope.currentPage = 0,
+		$scope.pageSize = 5,
+		$scope.data = [],
+		$scope.numberOfPages = function(){
+			return Math.ceil($scope.scores.length / $scope.pageSize);
+		}
+		for(var i = 0; i < 10; i++){
+			$scope.data.push("item " + i);
+		}
+	});
 	$scope.submit = function() {
 		console.log($scope.text);
 		gameFactory.submitAnswer($scope.text);
@@ -21,4 +32,11 @@ chinglish.controller('games', function($scope, gameFactory){
 		fillLastPage: true
 	}
   
+})
+
+chinglish.filter('startFrom', function(){
+	return function(input, start){
+		start = +start;
+		return input.slice(start);
+	}
 })

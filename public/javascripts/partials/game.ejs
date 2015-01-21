@@ -11,11 +11,18 @@
 			<div class='row'>
 				<div class='col-md-2'></div>
 				<div class='col-md-8'>
-					<nav class='nav'>
-						<input type='submit' ng-controller='games' ng-click="start('screen', 'user_input', 'score', 'game_over')" class='btn btn-md btn-primary text-left' value='Start'>
+					<div class='game_nav' ng-controller='games'>
+					    <div class="col-sm-4 col-md-2">
+					    	<select id="difficulty" name='difficulty' class="form-control"  ng-model='difficulty.level'>
+					    		<option>Easy</option>
+					      		<option>Medium</option>
+					      		<option>Hard</option>
+					   		</select> 
+					   	</div>
+						<input type='submit' ng-click="start('screen', 'user_input', 'score', 'game_over')" class='btn btn-md btn-primary text-right' value='Start'>
 						<p id='game_over'></p>
 						<p id='score'></p> 
-					</nav>
+					</div>
 				</div>
 				<div class='col-md-2'></div>
 			</div>

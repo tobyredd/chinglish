@@ -16,6 +16,7 @@ module.exports = {
 		var info = {
 			name: request.session.name,
 			score: request.body.total,
+			difficulty: request.body.difficulty,
 			// score: 35,
 			created_at: date
 		};
@@ -60,7 +61,7 @@ module.exports = {
 				}
 			}
 		});
-// 		console.log('info, ', info);
+		console.log('info, ', info);
 	}	
 }
 			

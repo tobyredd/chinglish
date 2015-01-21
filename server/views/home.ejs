@@ -23,10 +23,15 @@
 </head>
 <body>
 	<div ng-app='chinglish'>
-		<%= 'welcome ' + username %>
-		<nav class='nav'>
+		
+		<!-- <nav class='nav'>
 			<a href='#/'>Dashboard</a> | <a href="#/chat">Chat</a> | <a href="/logout">Logout</a>
-		</nav>
+		</nav> -->
+		<div class='nav'>
+			<h2>Chinglish</h2>
+			<a href='#/'>Dashboard</a> | <a href="#/chat">Chat</a> | <a href="/logout">Logout</a>
+		</div>
+		<%= 'welcome ' + username %>
 		<div ng-view=""></div>
 
 		<!-- <img src='./img/chinglish_cover.jpg' alt='cover'> -->

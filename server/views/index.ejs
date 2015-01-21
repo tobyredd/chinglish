@@ -20,22 +20,19 @@
 	<script src="./javascripts/controllers/games.js"></script>
 </head>
 <body>
+
 	<div ng-app='chinglish'>
-		
-		
+		<div class='nav'>
+			<h2>Chinglish</h2>
+		</div>
+		<div class='login'>
 		<!-- <img src='./img/chinglish_cover.jpg' alt='cover'> -->
-		<p>Hello Login Page!!</p>
-		<div ng-controller='users'>
-			<div class='container'>
-				<div class='login'>
+			<div ng-controller='users'>
+				<div class='container'>
+
 					<div class='row'>
-						<div class='col-md-6'>
-							<h1 class='text-right'>Chinglish!</h1>
-						</div>
-						
-					</div>
-					<div class='row'>
-						<div class='col-md-4'>
+						<div class='col-md-1'></div>
+						<div class='col-md-3'>
 							<h2>Login</h2>
 							<form action='/users/login' method='post'>
 								<p><input type='text' ng-model='old_user.name' placeholder='user name' name='name'></p>

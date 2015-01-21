@@ -78,7 +78,7 @@ chinglish.factory('gameFactory', ['$http', function($http){
 			}
 		}
 	}
-	factory.playGround = function(screen, user_input, score, stopper, game_over){
+	factory.playGround = function(screen, user_input, score, stopper, game_over, speed){
 		this.screen = screen
 		this.user_input = user_input;
 		this.user_score = score;
@@ -89,6 +89,7 @@ chinglish.factory('gameFactory', ['$http', function($http){
 		this.mistakes = 0;
 		this.my_game = stopper;
 		this.game_over = game_over;
+		this.speed = speed;
 		console.log('my game varaible, ', this.my_game);
 	}
 	factory.playGame = function(){
@@ -102,7 +103,9 @@ chinglish.factory('gameFactory', ['$http', function($http){
 			clearInterval(this.my_game);
 			var info = {};
 			info.total = this.score;
+			info.difficulty = this.speed;
 			console.log('info: ', info);
+			console.log('speed: ', this.speed);
 			$('#' + this.game_over).text('5 hit the bottom, game over..refresh to restart');
 			///////saving score to the database//////
 			$http.post('/scores/save_score', info).success(function(){

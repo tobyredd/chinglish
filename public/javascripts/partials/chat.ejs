@@ -11,15 +11,14 @@
 		</div>
 		
 		<div class='chat'>
-			<!-- <p ng-repeat='message in messages'>
-				{{message.message}}
-			</p> -->
 		</div>
 		
 		<div class='row'>
 			<div class='col-md-12 chat_inputs'>
-				<input type='text' placeholder='chat' ng-model='message'>
-				<input type='submit' class='btn btn-md btn-danger' ng-click='sendMessage()'>
+				<form ng-submit='sendMessage()'>
+					<input type='text' placeholder='chat' ng-model='message' id='user_input'>
+					<input type='submit' class='btn btn-md btn-danger'>
+				</form>
 			</div>
 		</div>
 	</div>

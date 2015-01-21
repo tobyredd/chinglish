@@ -11,8 +11,6 @@ module.exports = {
 	save: function(request, response){
 		var time = Date();
 		var date = time.substring(0, 15);
-		console.log('made it to the save score function!', request.body);
-		console.log('session user: ', request.session.name);
 		var info = {
 			name: request.session.name,
 			score: request.body.total,
@@ -21,11 +19,8 @@ module.exports = {
 			created_at: date
 		};
 		Score.find({}, function(err, results){
-			
-			console.log('results is an array!!!, ', results[0]._id);
-			console.log('results is an array!!!, ', results.length);
 			if(results.length < 10){
-				//save the info to the db, because it will be in the top 10 no matter what the score is///
+				// save the info to the db, because it will be in the top 10 no matter what the score is///
 				// console.log('all scores: ', scores);
 				var a = new Score(info);
 				a.save(function(err){
@@ -61,7 +56,6 @@ module.exports = {
 				}
 			}
 		});
-		console.log('info, ', info);
 	}	
 }
 			

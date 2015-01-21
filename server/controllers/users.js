@@ -1,5 +1,6 @@
 var mongoose = require('mongoose')
 var User = mongoose.model('User');
+var bcrypt = require('bcrypt');
 
 
 module.exports = {
@@ -13,10 +14,12 @@ module.exports = {
             if(results[0].password === request.body.password){
                 response.redirect('homepage');
             }
+            // if(bcrypt.compareSync(request.body.password, results[0].password)){
+            //     response.redirect('homepage');
+            // }
         });
     },
     homepage: function(request, response){
-        console.log('home page session: ', request.session);
         if(request.session.name){
             response.render('home', {username: request.session.name});
         }
@@ -30,16 +33,18 @@ module.exports = {
         });
     },
     create: function(req, res) {
-        console.log('info from server controller: ', req.body);
         if(req.body.password !== req.body.confirm_password){
-            console.log('password doesnt match confirmation..');
         }
         else{
+           // var salt = bcrypt.genSaltSync(10);
+           // var hash = bcrypt.hashSync(req.body.password, salt);
+           // var hash = bcrypt.hashSync(req.body.password, 10);
+           // console.log('hash: ', hash);
             var info = {
                 name: req.body.name,
                 email: req.body.email,
                 password: req.body.password,
-                // password: CryptoJS.MD5(req.body.password),
+                // password: hash,
                 created_at: req.body.created_at
             }
             console.log('about to model: ', info);

@@ -4,7 +4,4 @@ chinglish.controller('users', function($scope, userFactory){
 	$scope.addUser = function(){
 		userFactory.addNewUser($scope.new_user);
 	}
-	// $scope.loginUser = function(){
-	// 	userFactory.loginOldUser($scope.old_user);
-	// }
 })

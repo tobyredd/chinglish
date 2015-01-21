@@ -3,7 +3,7 @@ var time = Date();
 var date = time.substring(0, 15);
 
 var UserSchema = new mongoose.Schema( {
-        name:  String,
+        name: String,
         email: String,
         password: String,
         created_at: { type: String, default: date },

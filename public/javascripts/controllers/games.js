@@ -13,15 +13,13 @@ chinglish.controller('games', function($scope, gameFactory){
 		}
 	});
 	$scope.submit = function() {
-		console.log($scope.text);
 		gameFactory.submitAnswer($scope.text);
+		$('#user_input').val('');
 	}
 	function timerTick(myFactory){
 		myFactory.playGame();
 	}
 	$scope.start = function(screen, user_input, score, game_over, speed){
-		console.log('stuff', screen, user_input, score, game_over);
-		console.log('scope: ', $scope.difficulty);
 		if($scope.difficulty.level === 'Easy'){
 			var speed = 1200;
 		}
@@ -31,7 +29,6 @@ chinglish.controller('games', function($scope, gameFactory){
 		else{
 			var speed = 750;
 		}
-		console.log('speed: ', speed);
 		var screen = document.getElementById(screen);
 		// var score = document.getElementById(score);
 		var my_game = setInterval(timerTick, speed, gameFactory);

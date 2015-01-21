@@ -13,4 +13,12 @@ chinglish.config(function($routeProvider){
 	{
 		templateUrl: 'javascripts/partials/game.ejs'
 	})
+	.when('/multiplayer',
+	{
+		templateUrl: 'javascripts/partials/multiplayer.ejs'
+	})
+	.when('/multiplayer_game',
+	{
+		templateUrl: 'javascripts/partials/multiplayer_game.ejs'
+	})
 })

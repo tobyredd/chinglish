@@ -1,0 +1,40 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div class='container'>
+		<div class='col-md-8 my_game'>
+			<div class='game_nav' ng-controller='games'>
+			    <div class="col-sm-4 col-md-2">
+			    	<select id="difficulty" name='difficulty' class="form-control"  ng-model='difficulty.level'>
+			    		<option>Easy</option>
+			      		<option>Medium</option>
+			      		<option>Hard</option>
+			   		</select> 
+			   	</div>
+				<input type='submit' ng-click="start('screen', 'user_input', 'score', 'game_over')" class='btn btn-md btn-primary text-right' value='Start'>
+				<p id='game_over'></p>
+				<p id='score'></p> 
+			</div>
+			<div class='col-md-8 screen' id='screen' ng-model='screen' ng-controller='games'>
+			</div>
+			<div class='col-md-8'>
+				<form ng-submit="submit()" ng-controller="games">
+					Enter text and hit enter:
+					<input type="text" id='user_input' ng-model="text" name="text" />
+				</form>
+			</div>
+		</div>
+		<div class='col-md-4'>
+			Opponent1<div class='opponent_score' id='opponent_score1'></div>
+			<div class='opponent_box'></div>
+		</div>
+		<div class='col-md-4'>
+			Opponent2<div class='opponent_score' id='opponent_score2'></div>
+			<div class='opponent_box'></div>
+		</div>
+	</div>
+</body>
+</html>
+

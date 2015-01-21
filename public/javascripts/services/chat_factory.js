@@ -14,7 +14,6 @@ chinglish.factory('chatFactory', ['$http', function($http){
 	}
 	factory.sendMessage = function(message){
 		io.emit('message_submit', { message: message });
-		
 	}
 	return factory;
 }])

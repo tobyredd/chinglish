@@ -10,13 +10,22 @@ module.exports = {
     login: function(request, response){
         console.log('inside the controller method login');
         console.log('info: ', request.body);
-        User.find({ name: request.body.name}, function(err, results){
-            if(results[0].password === request.body.password){
-                response.redirect('homepage');
-            }
-            // if(bcrypt.compareSync(request.body.password, results[0].password)){
+        User.findOne({ name: request.body.name}, function(err, user){
+            // if(user[0].password === request.body.password){
             //     response.redirect('homepage');
             // }
+            ////testing encryption//////
+            if(err) throw err;
+            user.comparePassword(request.body.password, function(err, isMatch){
+                if(err) throw err;
+                console.log(request.body.password, ': ', isMatch);
+                    response.redirect('homepage');
+            })
+            user.comparePassword(request.body.password, function(err, isMatch){
+                if(err) throw err;
+                console.log(request.body.password, ': ', isMatch);
+            })
+            ///////end test....//////
         });
     },
     homepage: function(request, response){
@@ -36,15 +45,10 @@ module.exports = {
         if(req.body.password !== req.body.confirm_password){
         }
         else{
-           // var salt = bcrypt.genSaltSync(10);
-           // var hash = bcrypt.hashSync(req.body.password, salt);
-           // var hash = bcrypt.hashSync(req.body.password, 10);
-           // console.log('hash: ', hash);
             var info = {
                 name: req.body.name,
                 email: req.body.email,
                 password: req.body.password,
-                // password: hash,
                 created_at: req.body.created_at
             }
             console.log('about to model: ', info);

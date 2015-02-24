@@ -15,16 +15,20 @@ module.exports = {
             //     response.redirect('homepage');
             // }
             ////testing encryption//////
-            if(err) throw err;
-            user.comparePassword(request.body.password, function(err, isMatch){
-                if(err) throw err;
-                console.log(request.body.password, ': ', isMatch);
-                    response.redirect('homepage');
-            })
-            user.comparePassword(request.body.password, function(err, isMatch){
-                if(err) throw err;
-                console.log(request.body.password, ': ', isMatch);
-            })
+            if(!user){
+             response.redirect('/');
+            }
+            else{
+                user.comparePassword(request.body.password, function(err, isMatch){
+                    if(err) throw err;
+                    console.log(request.body.password, ': ', isMatch);
+                        response.redirect('homepage');
+                })
+                user.comparePassword(request.body.password, function(err, isMatch){
+                    if(err) throw err;
+                    console.log(request.body.password, ': ', isMatch);
+                })
+            }
             ///////end test....//////
         });
     },

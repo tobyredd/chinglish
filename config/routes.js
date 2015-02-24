@@ -11,10 +11,11 @@ module.exports = function Routes(app) {
     app.post('/users/create_json', function(req, res){users.create(req, res)});   
     app.post('/users/login', function(req, res){ 
         req.session.name = req.body.name; 
+        console.log('session: ', req.session.name);
         users.login(req, res) 
     });
      /////dashboard///////
-    app.get('/homepage', function(req, res){ users.homepage(req, res) });
+    app.get('/homepage', function(req, res){ console.log('session again: ', req.session.name); users.homepage(req, res) });
     
     ///////////////////////////////////
     app.get('/logout', function(req, res){

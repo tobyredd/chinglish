@@ -24,7 +24,7 @@ module.exports = {
         }
     },
     test: {
-        db: 'mongodb://localhost/test',
+        db: 'mongodb://admin:admin@ds049161.mongolab.com:49161/heroku_app34322227',
         root: rootPath,
         notifier: notifier,
         app: {

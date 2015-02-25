@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var env = process.env.NODE_ENV || 'development';
+var env = process.env.NODE_ENV || 'test';
 var fs = require('fs');
 var config = require('./config')[env];
 

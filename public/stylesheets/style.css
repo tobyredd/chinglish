@@ -2,7 +2,7 @@
 	margin-top: 0px;
 	width: 100%;
 	height: 100%;
-	background-image: url('/public/img/cover_page.jpg');
+	background-image: url('../img/cover_page.jpg');
 	background-size: 100%;
 	background-repeat: no-repeat;
 }

@@ -51,7 +51,6 @@ module.exports = {
         else{
             var info = {
                 name: req.body.name,
-                email: req.body.email,
                 password: req.body.password,
                 created_at: req.body.created_at
             }

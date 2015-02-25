@@ -43,10 +43,11 @@
 						</div>
 						<div class='col-md-4'>
 							<h2>Register</h2>
-							<p><input type='text' ng-model='new_user.name' placeholder='user name'></p>
-							<p><input type='text' ng-model='new_user.email' placeholder='email'></p>
-							<p><input type='password' ng-model='new_user.password' placeholder='password'></p>
-							<p><input type='password' ng-model='new_user.confirm_password' placeholder='password'></p>
+							<p id='success'></p>
+							<p><input type='text' class='registration_form' ng-model='new_user.name' placeholder='user name'></p>
+							<p><input type='text' class='registration_form' ng-model='new_user.email' placeholder='email'></p>
+							<p><input type='password' class='registration_form' ng-model='new_user.password' placeholder='password'></p>
+							<p><input type='password' class='registration_form' ng-model='new_user.confirm_password' placeholder='password'></p>
 							<p><input type='submit' ng-click='addUser()' class='btn btn-md-primary' value='Register'></p>
 						</div>
 					</div>

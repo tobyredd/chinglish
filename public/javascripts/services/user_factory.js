@@ -11,6 +11,7 @@ chinglish.factory('userFactory', ['$http', function($http){
 		info.created_at = date;
 		$http.post('/users/create_json', info).success(function(){
 			console.log('successful registration!');
+			$('#success').append('Successfully registered!');
 		})
 	}
 	return factory;

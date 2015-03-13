@@ -25,3 +25,5 @@ over.
 Users can also chat with each other to talk about whatever they want, including Chinese!
 ![chat](https://github.com/tobyredd/chinglish/raw/master/chat.png)
 
+** COMING SOON, MULTIPLAYER using Socket.io **
+

@@ -14,10 +14,13 @@ Socket.io
 
 On the User's Dashboard page, there is a table of characters for the user to memorize, as well as a leaderboard with the top
 10 scores. 
+![dashboard](https://github.com/tobyredd/chinglish/raw/master/dashboard.png)
 
 In the game, the User chooses a difficulty based on speed, and when the game begins, the characters fall from the top of the screen 
 and the user must remember what they learned. Once 5 characters hit the bottom without successful translation, the user gets a game
 over. 
+![game](https://github.com/tobyredd/chinglish/raw/master/game.png)
 
 Users can also chat with each other to talk about whatever they want, including Chinese!
+![chat](https://github.com/tobyredd/chinglish/raw/master/chat.png)
 

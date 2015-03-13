@@ -11,6 +11,8 @@ AngularJS
 NodeJS
 Socket.io
 
+The file structure is laid out with all the JS server related code in the Server folder, and all the Javascript partials, Angular controllers and factories in the public folder. 
+
 On the User's Dashboard page, there is a table of characters for the user to memorize, as well as a leaderboard with the top
 10 scores. 
 ![dashboard](https://github.com/tobyredd/chinglish/raw/master/dashboard.png)
